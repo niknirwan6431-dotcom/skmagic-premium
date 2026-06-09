@@ -14,9 +14,14 @@ box-sizing:border-box;
 font-family:Arial,sans-serif;
 }
 
+html{
+scroll-behavior:smooth;
+}
+
 body{
 background:#0f172a;
 color:white;
+overflow-x:hidden;
 }
 
 .hero{
@@ -26,10 +31,14 @@ justify-content:center;
 align-items:center;
 padding:50px;
 gap:80px;
+background:
+radial-gradient(circle at center,
+rgba(255,106,0,.15),
+transparent 60%);
 }
 
 .logo{
-width:160px;
+width:180px;
 margin-bottom:20px;
 }
 
@@ -57,26 +66,135 @@ padding:15px 30px;
 border-radius:50px;
 text-decoration:none;
 font-weight:bold;
+cursor:pointer;
+border:none;
 }
 
 .poster{
-width:380px;
+width:420px;
 border-radius:20px;
-box-shadow:
-0 20px 60px rgba(255,120,0,.4);
+box-shadow:0 25px 60px rgba(255,120,0,.4);
 animation:float 6s ease-in-out infinite;
 }
 
 @keyframes float{
-0%{
-transform:translateY(0px);
+0%{transform:translateY(0);}
+50%{transform:translateY(-15px);}
+100%{transform:translateY(0);}
 }
-50%{
-transform:translateY(-15px);
+
+.features{
+padding:80px 30px;
+background:#111827;
+text-align:center;
 }
-100%{
-transform:translateY(0px);
+
+.features h2{
+font-size:42px;
+margin-bottom:40px;
 }
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+max-width:1200px;
+margin:auto;
+}
+
+.card{
+background:rgba(255,255,255,.05);
+padding:30px;
+border-radius:20px;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.stats{
+padding:80px 30px;
+text-align:center;
+}
+
+.stats-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+max-width:1000px;
+margin:auto;
+}
+
+.stat{
+font-size:50px;
+font-weight:bold;
+color:#ff6b00;
+}
+
+.testimonials{
+padding:80px 30px;
+background:#111827;
+}
+
+.testimonials h2{
+text-align:center;
+margin-bottom:40px;
+font-size:42px;
+}
+
+.testi{
+max-width:900px;
+margin:20px auto;
+background:rgba(255,255,255,.05);
+padding:25px;
+border-radius:20px;
+}
+
+.faq{
+padding:80px 30px;
+}
+
+.faq h2{
+text-align:center;
+font-size:42px;
+margin-bottom:40px;
+}
+
+.faq-item{
+background:#111827;
+padding:20px;
+border-radius:15px;
+margin-bottom:15px;
+}
+
+.cta{
+padding:100px 20px;
+text-align:center;
+background:linear-gradient(135deg,#ff6b00,#ff9f43);
+}
+
+.cta h2{
+font-size:50px;
+margin-bottom:20px;
+}
+
+.whatsapp-float{
+position:fixed;
+bottom:20px;
+right:20px;
+width:70px;
+height:70px;
+background:#25D366;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:30px;
+text-decoration:none;
+color:white;
+box-shadow:0 10px 30px rgba(0,0,0,.3);
+z-index:999;
 }
 
 @media(max-width:768px){
@@ -84,16 +202,24 @@ transform:translateY(0px);
 .hero{
 flex-direction:column;
 text-align:center;
+padding-top:100px;
 }
 
 .left h1{
-font-size:40px;
+font-size:42px;
 }
 
 .poster{
 width:280px;
 }
 
+.stats-grid{
+grid-template-columns:1fr;
+}
+
+.cta h2{
+font-size:32px;
+}
 }
 
 </style>
@@ -113,23 +239,173 @@ Keluarga Anda
 </h1>
 
 <p>
-Nikmati air panas dan sejuk segera
-dengan teknologi premium SK Magic.
+Nikmati air panas dan sejuk segera dengan teknologi premium SK Magic.
 </p>
 
-<a href="https://wa.me/60105332502?text=Saya%20nak%20semak%20kelayakan%20SK%20Magic" class="btn">
+<button onclick="openWhatsapp()" class="btn">
 Semak Kelayakan
-</a>
+</button>
 
 </div>
 
 <div>
-
 <img src="poster.png" class="poster">
+</div>
+
+</section>
+
+<section class="features">
+
+<h2>Kenapa Pilih SK Magic?</h2>
+
+<div class="grid">
+
+<div class="card">
+💧
+<h3>Air Bersih</h3>
+<p>Penapisan berkualiti tinggi untuk keluarga.</p>
+</div>
+
+<div class="card">
+🔥
+<h3>Air Panas Segera</h3>
+<p>Sesuai untuk kopi, teh dan susu anak.</p>
+</div>
+
+<div class="card">
+❄️
+<h3>Air Sejuk Segera</h3>
+<p>Nikmati air sejuk pada bila-bila masa.</p>
+</div>
+
+<div class="card">
+🛡️
+<h3>Servis Berkala</h3>
+<p>Penyelenggaraan profesional dan waranti.</p>
+</div>
 
 </div>
 
 </section>
+
+<section class="stats">
+
+<div class="stats-grid">
+
+<div>
+<div class="stat">5000+</div>
+Pelanggan
+</div>
+
+<div>
+<div class="stat">99%</div>
+Kepuasan
+</div>
+
+<div>
+<div class="stat">24/7</div>
+Sokongan
+</div>
+
+</div>
+
+</section>
+
+<section class="testimonials">
+
+<h2>Testimoni Pelanggan</h2>
+
+<div class="testi">
+⭐⭐⭐⭐⭐<br><br>
+"Air lebih bersih dan servis sangat memuaskan."
+</div>
+
+<div class="testi">
+⭐⭐⭐⭐⭐<br><br>
+"Pemasangan kemas dan penerangan jelas."
+</div>
+
+</section>
+
+<section class="faq">
+
+<h2>Soalan Lazim</h2>
+
+<div class="faq-item">
+<b>Berapa bayaran bulanan?</b><br>
+Bergantung kepada pakej promosi semasa.
+</div>
+
+<div class="faq-item">
+<b>Ada servis berkala?</b><br>
+Ya, servis berkala disediakan.
+</div>
+
+<div class="faq-item">
+<b>Boleh mohon secara online?</b><br>
+Ya, terus WhatsApp kami.
+</div>
+
+</section>
+
+<section class="cta">
+
+<h2>Dapatkan Konsultasi Percuma</h2>
+
+<br>
+
+<button onclick="openWhatsapp()" class="btn">
+WhatsApp Sekarang
+</button>
+
+</section>
+
+<a href="#" onclick="openWhatsapp()" class="whatsapp-float">
+💬
+</a>
+
+<script>
+
+const numbers = [
+"60105332502",
+"60107849217",
+"601137602747",
+"60196304577"
+];
+
+function getNextNumber(){
+
+let index = localStorage.getItem("wa_index");
+
+if(index === null){
+index = 0;
+}else{
+index = parseInt(index);
+}
+
+const number = numbers[index];
+
+index++;
+
+if(index >= numbers.length){
+index = 0;
+}
+
+localStorage.setItem("wa_index", index);
+
+return number;
+}
+
+function openWhatsapp(){
+
+const number = getNextNumber();
+
+window.location.href =
+`https://wa.me/${number}?text=Saya%20nak%20maklumat%20SK%20Magic`;
+
+}
+
+</script>
 
 </body>
 </html>
