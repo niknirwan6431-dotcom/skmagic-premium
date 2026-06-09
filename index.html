@@ -6,71 +6,111 @@
 <title>SK Magic Premium</title>
 
 <style>
-body{
+
+*{
 margin:0;
-background:#0f172a;
+padding:0;
+box-sizing:border-box;
 font-family:Arial,sans-serif;
+}
+
+body{
+background:#0f172a;
 color:white;
 }
 
 .hero{
-height:100vh;
+min-height:100vh;
 display:flex;
-align-items:center;
 justify-content:center;
+align-items:center;
+padding:50px;
 gap:80px;
-padding:40px;
 }
 
 .logo{
-width:180px;
+width:160px;
 margin-bottom:20px;
 }
 
-.content h1{
-font-size:60px;
-margin:0;
+.left{
+max-width:600px;
 }
 
-.content p{
+.left h1{
+font-size:64px;
+line-height:1.1;
+margin-bottom:20px;
+}
+
+.left p{
 font-size:20px;
-opacity:.8;
-}
-
-.product{
-width:350px;
-animation:float 5s ease-in-out infinite;
-filter:drop-shadow(0 30px 40px rgba(255,102,0,.4));
-}
-
-@keyframes float{
-0%{transform:translateY(0px);}
-50%{transform:translateY(-20px);}
-100%{transform:translateY(0px);}
+opacity:.85;
+margin-bottom:30px;
 }
 
 .btn{
 display:inline-block;
-padding:15px 30px;
-background:#ff6600;
+background:#ff6b00;
 color:white;
-text-decoration:none;
+padding:15px 30px;
 border-radius:50px;
-margin-top:20px;
+text-decoration:none;
 font-weight:bold;
 }
-</style>
 
+.poster{
+width:380px;
+border-radius:20px;
+box-shadow:
+0 20px 60px rgba(255,120,0,.4);
+animation:float 6s ease-in-out infinite;
+}
+
+@keyframes float{
+0%{
+transform:translateY(0px);
+}
+50%{
+transform:translateY(-15px);
+}
+100%{
+transform:translateY(0px);
+}
+}
+
+@media(max-width:768px){
+
+.hero{
+flex-direction:column;
+text-align:center;
+}
+
+.left h1{
+font-size:40px;
+}
+
+.poster{
+width:280px;
+}
+
+}
+
+</style>
 </head>
+
 <body>
 
 <section class="hero">
 
-<div class="content">
+<div class="left">
 
 <img src="logo.png" class="logo">
 
-<h1>Air Bersih Untuk<br>Keluarga Anda</h1>
+<h1>
+Air Bersih Untuk
+Keluarga Anda
+</h1>
 
 <p>
 Nikmati air panas dan sejuk segera
@@ -85,7 +125,7 @@ Semak Kelayakan
 
 <div>
 
-<img src="product.png" class="product">
+<img src="product.png" class="poster">
 
 </div>
 
