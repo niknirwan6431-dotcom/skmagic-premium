@@ -366,46 +366,18 @@ WhatsApp Sekarang
 
 <script>
 
-const numbers = [
-"60105332502",
-"60107849217",
-"601137602747",
-"60196304577"
-];
+async function openWhatsapp(){
 
-function getNextNumber(){
+const response = await fetch(
+"https://script.google.com/macros/s/AKfycbzLWH48MEYaIGrxYGOHriM-ckDvR22VSoSeskohrrEkG7WJB20mNl3tTpONnz1Wtx6_LA/exec"
+);
 
-let index = localStorage.getItem("wa_index");
+const url = await response.text();
 
-if(index === null){
-index = 0;
-}else{
-index = parseInt(index);
-}
-
-const number = numbers[index];
-
-index++;
-
-if(index >= numbers.length){
-index = 0;
-}
-
-localStorage.setItem("wa_index", index);
-
-return number;
-}
-
-function openWhatsapp(){
-
-const number = getNextNumber();
-
-window.location.href =
-`https://wa.me/${number}?text=Saya%20nak%20maklumat%20SK%20Magic`;
+window.location.href = url;
 
 }
 
 </script>
-
 </body>
 </html>
